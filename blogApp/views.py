@@ -6,10 +6,10 @@ from blogApp.models import PostModel, CategoriaModel
 def blog(request):
 
     posts = PostModel.objects.all()
-    return render(request, "blog/blog.html", {'posts': posts})
+    return render(request, 'blog/blog.html', {'posts': posts})
 
 def categoria(request, categoria_id):
-    
+
     categoria = CategoriaModel.objects.get(id=categoria_id)
-    posts = PostModel.objects.filter(categoria=categoria)
-    return render(request, "blog/categorias.html", {'categoria': categoria, 'posts': posts})
+    posts = PostModel.objects.filter(categorias=categoria)
+    return render(request, 'blog/categorias.html', {'categoria': categoria, 'posts': posts})

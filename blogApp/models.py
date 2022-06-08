@@ -20,10 +20,9 @@ class PostModel(models.Model):
     contenido = models.TextField(max_length=200)
     imagen = models.ImageField(upload_to='blog', null = True, blank = True)
     autor = models.ForeignKey(User, on_delete=models.CASCADE)
-    categoria = models.ManyToManyField(CategoriaModel)
+    categorias = models.ManyToManyField(CategoriaModel)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now_add=True)
-    categoria = models.ForeignKey(CategoriaModel, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = 'post'
