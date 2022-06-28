@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}<title>Contacto</title>{% endblock %}
+{% load static %}
+
+{% block content %}
+<body>
+    <h3 style="color: whitesmoke">
+        Envía tu consulta a continuación:
+    </h3>
+    <div class="contenedorFormulario">
+
+        {% if "valido" in request.GET %}
+
+        <p style = "color: whitesmoke">Consulta enviada correctamente, gracias</p>
+
+        {% elif "novalido" in request.GET %}
+
+        <p style = "color: whitesmoke">Falló el envío de consulta, intentalo nuevamente</p>
+
+        {% endif %}
+
+        <form action="" method="POST">{% csrf_token %}
+            <table>
+                {{ miFormulario.as_table }}
+            </table>
+            <input class="btn btn-secondary" type="submit", value="Enviar">
+        </form>
+    </div>
+    
+</body>   
+{% endblock %}

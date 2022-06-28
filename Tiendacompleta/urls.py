@@ -17,10 +17,14 @@ from django.contrib import admin
 from django.urls import path, include
 from webApp import urls
 from serviciosApp import urls
+from contactoApp import urls
+from tiendaApp import urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('webApp.urls')),
     path('servicios/', include('serviciosApp.urls')),
     path('blog/', include('blogApp.urls')),
+    path('contacto/', include('contactoApp.urls')),
+    path('tienda/', include('tiendaApp.urls')),
 ]

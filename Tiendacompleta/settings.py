@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'webApp',
     'serviciosApp',
     'blogApp',
+    'contactoApp',
+    'tiendaApp',
+    'carroApp',
 ]
 
 MIDDLEWARE = [
@@ -132,3 +135,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#configuracion email
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'yamil.rokr@gmail.com'
+EMAIL_HOST_PASSWORD = 'Wixo2020'
