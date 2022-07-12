@@ -5,6 +5,14 @@
 {% block content %}
 
 <div class="container">
+
+    <div style="float: right;">
+        <p style="color: whitesmoke;">Total: $ {{importe_total_carro}}</p>
+
+        {% include "carro/widget.html" %}
+
+    </div>
+
     <div class="row">
 
 {% for prod in productos %}
@@ -17,6 +25,9 @@
         <div class="card-body" style="text-align: center;">
             <h7 class="card-title">{{prod.nombre}}</h7>
             <p class="card-test">$ &nbsp;{{prod.precio}}</p>
+        </div>
+        <div class="card-footer text-center">
+            <a href="{% url 'carro:Agregar' producto.id %}" class="btn btn-succes">Agregar al carro</a>
         </div>
 
     </div>
