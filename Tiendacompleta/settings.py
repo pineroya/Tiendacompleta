@@ -61,7 +61,7 @@ ROOT_URLCONF = 'Tiendacompleta.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["C:\\Users\\yamil\\Desktop\\programación\\trabajosenpython3.8\\proyectosDjango\\Tiendacompleta\\template"],
+        'DIRS': ["C:\\Users\\Yamil\\Desktop\\programación\\trabajosenpython3.8\\proyectosDjango\\Tiendacompleta\\template"],
         #'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -143,4 +143,4 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'yamil.rokr@gmail.com'
-EMAIL_HOST_PASSWORD = 'Wixo2020'
+EMAIL_HOST_PASSWORD = ''
