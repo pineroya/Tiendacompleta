@@ -1,12 +1,12 @@
 class Carro:
     def __init__(self, request):
-        self.request = request
+        '''self.request = request
         self.session = request.session
         carro = self.session.get("carro")
         if not carro:
             carro = self.session["carro"] = {}
-        else:
-            self.carro = carro
+        #else:'''
+        self.carro = carro
 
     def agregar(self, producto):
         if(str(producto.id) not in self.carro.keys()):
@@ -19,8 +19,9 @@ class Carro:
                 }
         else:
             for key, value in self.carro.items():
-                if key ==str(producto.id):
+                if key == str(producto.id):
                     value["cantidad"] = value["cantidad"]+1
+                    value["precio"] = float(value["precio"])+producto.precio
                     break
         self.guardar()
 
@@ -32,12 +33,13 @@ class Carro:
         producto.id = str(producto.id)
         if producto.id in self.carro:
             del self.carro[producto.id]
-            self.guardar
+            self.guardar()
     
     def restar(self, producto):
         for key, value in self.carro.items():
-            if key ==str(producto.id):
+            if key == str(producto.id):
                 value["cantidad"] = value["cantidad"]-1
+                value["precio"] = float(value["precio"])-producto.precio
                 if value["cantidad"]<1:
                     self.eliminar(producto)
                 break

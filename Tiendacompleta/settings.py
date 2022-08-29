@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'contactoApp',
     'tiendaApp',
     'carroApp',
+    'autenticacionApp',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -61,8 +63,7 @@ ROOT_URLCONF = 'Tiendacompleta.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["C:\\Users\\Yamil\\Desktop\\programación\\trabajosenpython3.8\\proyectosDjango\\Tiendacompleta\\template"],
-        #'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'template')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -144,3 +145,5 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'yamil.rokr@gmail.com'
 EMAIL_HOST_PASSWORD = ''
+
+CRISPY_TEMPLATE_PACK='bootstrap4'

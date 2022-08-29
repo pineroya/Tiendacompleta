@@ -8,19 +8,19 @@ from tiendaApp.models import ProductoModel
 
 def agregar_producto(request, producto_id):
     carro = Carro(request)
-    producto = ProductoModel.get(id = producto_id)
+    producto = ProductoModel.objects.get(id = producto_id)
     carro.agregar(producto = producto)
     return redirect("Tienda")
 
 def eliminar_producto(request, producto_id):
     carro = Carro(request)
-    producto = ProductoModel.get(id = producto_id)
+    producto = ProductoModel.objects.get(id = producto_id)
     carro.eliminar(producto = producto)
     return redirect("Tienda")
 
 def restar_producto(request, producto_id):
     carro = Carro(request)
-    producto = ProductoModel.get(id = producto_id)
+    producto = ProductoModel.objects.get(id = producto_id)
     carro.restar(producto = producto)
     return redirect("Tienda")
 

@@ -23,10 +23,10 @@
 
         <div class="card-body" style="text-align: center;">
             <h7 class="card-title">{{prod.nombre}}</h7>
-            <p class="card-test">$ &nbsp;{{prod.precio}}</p>
+            <p class="card-text">$ &nbsp;{{prod.precio}}</p>
         </div>
         <div class="card-footer text-center">
-            <a href="{% url 'carro:Agregar' producto.id %}" class="btn btn-succes">Agregar al carro</a>
+            <a href="{% url 'carro:agregar' prod.id %}" class="btn btn-success">Agregar al carro</a>
         </div>
 
     </div>
