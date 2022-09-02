@@ -147,3 +147,6 @@ EMAIL_HOST_USER = 'yamil.rokr@gmail.com'
 EMAIL_HOST_PASSWORD = ''
 
 CRISPY_TEMPLATE_PACK='bootstrap4'
+
+LOGIN_URL = '/usuario/loguear' #LOGIN_URL = '/cuentas/login'
+LOGIN_REDIRECT_URL = '/'

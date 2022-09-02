@@ -25,10 +25,10 @@
       <span class="site-heading-lower">Gestión de Pedidos</span>
     </h1>
     <div style="text-align: right; margin-right: 100px; color: white;">
-    {% if user.is_autenticated %}
-    Bienvenido {{ user.username }} &nbsp;&nbsp;<a href="{% url 'cerrar_sesion' %}" style="color: whitesmoke">Cerrar sesión</a>
+    {% if user.is_authenticated %}
+    Bienvenido: {{ user.username }} &nbsp;&nbsp;<a href="{% url 'cerrar_sesion' %}" style="color: whitesmoke">Cerrar sesión</a>
     {% else %}
-    <a href="#" style="color: whitesmoke">Login</a> &nbsp; &nbsp; <a href="{% url 'Autenticacion' %}" style="color: whitesmoke">Regístrate</a>
+    <a href="{% url 'loguear' %}" style="color: whitesmoke">Login</a> &nbsp; &nbsp; <a href="{% url 'Registro' %}" style="color: whitesmoke">Regístrate</a>
     {% endif %}
     </div>
 
@@ -92,7 +92,8 @@
         <p class="m-0 mbt">
         	<a href="sample.html" class="link">Política de privacidad</a> ·
         	<a href="sample.html" class="link">Aviso legal</a> ·
-        	<a href="sample.html" class="link">Cookies</a>
+        	<a href="sample.html" class="link">Cookies</a> ·
+          <a href="{% url 'Acercade' %}" class="link">Acerca de Nosotros</a> ·
 		    </p>
         <p class="m-0 mbt1">&copy; Gestión de Pedidos 2022</p>
       </div>

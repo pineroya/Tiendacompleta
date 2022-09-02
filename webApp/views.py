@@ -4,3 +4,6 @@ from django.shortcuts import HttpResponse, render
 
 def home(request):
     return render(request, "web/home.html")
+
+def acercade(request):
+    return render(request, "web/acercade.html")

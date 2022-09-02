@@ -1,10 +1,12 @@
 from django.shortcuts import render
 from blogApp.models import PostModel, CategoriaModel
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
+@login_required
 def blog(request):
-
+    
     posts = PostModel.objects.all()
     return render(request, 'blog/blog.html', {'posts': posts})
 
