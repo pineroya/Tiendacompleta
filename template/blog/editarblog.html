@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}<title>Formulario blog</title>{% endblock %}
+{% load static %}
+
+{% block content %}
+<body>
+    <h3 style="color: whitesmoke">
+        Registra tu blog a continuación:
+    </h3>
+
+    {% if formulariob.errors %}
+    <p style="color:red">Datos incorrectos, revisar</p>
+    {% endif %}
+
+    <div class="contenedorFormulario">
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <table>
+                {{ formulariob.as_table }}
+                {{ formulariob.media }}
+            </table>
+            <input class="btn btn-secondary" type="submit", value="Enviar">
+        </form>
+    </div>
+</body>
+{% endblock %}

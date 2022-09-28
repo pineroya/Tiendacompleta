@@ -4,6 +4,10 @@
 
 {% block content %}
 
+<button  class="btn btn-secondary">
+    <a  href="{% url 'Formulario_blog' %}">Ingresa un Blog</a>
+</button>
+
     {% for post in posts %}
 
         <section class="page-section clearfix">
@@ -18,6 +22,9 @@
                             <div style="text-align: left; font-size: 0.8em;">
                                 Autor: {{post.autor}}
                                 Categoria: {{post.categoria}}
+                                <button class="btn btn-secondary">
+                                    <a href="{% url 'Editar_blog' post.titulo %}"> Editar</a>
+                                </button>
                             </div>
                         </div>
                 </div>

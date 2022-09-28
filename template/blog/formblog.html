@@ -1,13 +1,12 @@
 {% extends "base.html" %}
-{% block title %}<title>Contacto</title>{% endblock %}
+{% block title %}<title>Formulario blog</title>{% endblock %}
 {% load static %}
 
 {% block content %}
 <body>
     <h3 style="color: whitesmoke">
-        Envía tu consulta a continuación:
+        Ingrese su blog a continuación:
     </h3>
-    
     <div class="contenedorFormulario">
 
         {% if "valido" in request.GET %}
@@ -16,13 +15,14 @@
 
         {% elif "novalido" in request.GET %}
 
-        <p style = "color: whitesmoke">Falló el envío de consulta, intentalo nuevamente</p>
+        <p style = "color: whitesmoke">Falló el envío del formulario, intentalo nuevamente</p>
 
         {% endif %}
 
-        <form action="" method="POST">{% csrf_token %}
+        <form action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
             <table>
-                {{ miFormulario.as_table }}
+                {{ formulariob.as_table }}
+                {{ formulariob.media }}
             </table>
             <input class="btn btn-secondary" type="submit", value="Enviar">
         </form>
