@@ -20,6 +20,7 @@ from webApp import urls
 from serviciosApp import urls
 from contactoApp import urls
 from tiendaApp import urls
+from pedidosApp import urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,4 +32,5 @@ urlpatterns = [
     path('tienda/', include('tiendaApp.urls')),
     path('carro/', include('carroApp.urls')),
     path('usuario/', include('autenticacionApp.urls')),
+    path('pedidos/', include('pedidosApp.urls')),
 ]

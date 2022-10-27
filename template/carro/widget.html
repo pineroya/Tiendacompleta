@@ -24,7 +24,7 @@
                     <td>
                         <a href="{% url 'carro:agregar' value.producto_id %}" class="btn btn-sm btn-succes">+</a>
                         <a href="{% url 'carro:restar' value.producto_id %}" class="btn btn-sm btn-succes">-</a>
-                        {{value.precio}} $
+                        $ {{value.precio}}
                     </td>
                 </tr>
             {% endfor %}
@@ -46,5 +46,12 @@
                 Total: $ {{importe_total_carro}}
             </td>
         </tr>
+        {% if request.session.carro.items %}
+        <tr>
+            <td colspan="3" style="text-align: center">
+                <a href="#" class="btn btn-succes"Hacer Pedido></a>
+            </td>
+        </tr>
+        {% endif %}
     </tfoot>
 </table>
