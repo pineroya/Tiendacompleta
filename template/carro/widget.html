@@ -22,8 +22,8 @@
                     <td>{{value.nombre}}</td>
                     <td>{{value.cantidad}}</td>
                     <td>
-                        <a href="{% url 'carro:agregar' value.producto_id %}" class="btn btn-sm btn-succes">+</a>
-                        <a href="{% url 'carro:restar' value.producto_id %}" class="btn btn-sm btn-succes">-</a>
+                        <a href="{% url 'carro:agregar' value.producto_id %}" class="btn btn-sm btn-success">+</a>
+                        <a href="{% url 'carro:restar' value.producto_id %}" class="btn btn-sm btn-success">-</a>
                         $ {{value.precio}}
                     </td>
                 </tr>
@@ -49,7 +49,7 @@
         {% if request.session.carro.items %}
         <tr>
             <td colspan="3" style="text-align: center">
-                <a href="#" class="btn btn-succes"Hacer Pedido></a>
+                <a href="../pedidos" class="btn btn-success">Hacer Pedido</a>
             </td>
         </tr>
         {% endif %}

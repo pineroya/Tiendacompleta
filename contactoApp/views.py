@@ -21,7 +21,7 @@ def contacto(request):
 
             email = EmailMessage("Mensaje desde TiendaCompleta",
             "Usuario {}, con la dirección {}, escribe lo siguiente:\n\n {}".format(nombre, email, mensaje),
-            "", ["yamil.rokr@gmail.com"], reply_to=[email])
+            "", ["mispruebas.yam@gmail.com"], reply_to=[email])
 
             try:
                 email.send()

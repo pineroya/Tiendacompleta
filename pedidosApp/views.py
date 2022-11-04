@@ -1,14 +1,15 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.utils.html import strip_tags
 from django.core.mail import send_mail
-from flask import redirect
 from pedidosApp.models import LineaPedido, Pedido
 from carroApp.carro import Carro
 from django.contrib import messages
 from django.template.loader import render_to_string
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
+@login_required
 def procesar_pedido(request):
     pedido = Pedido.objects.create(user=request.user)
     carro = Carro(request)
@@ -23,23 +24,25 @@ def procesar_pedido(request):
     LineaPedido.objects.bulk_create(lineas_pedido)
     enviar_mail(pedido=pedido,
                 lineas_pedido=lineas_pedido,
-                nombreusuario=request.user.username,
-                emailusuario=request.user.mail
+                nombre_usuario=request.user.username,
+                email_usuario=request.user.email
     )
-    messages.succes(request, "El pedido se ha creado correctamente")
+    messages.success(request, "El pedido se ha creado correctamente")
 
     return redirect("../tienda")
+
+# mail enviado a travez de mailtrap.io usando su servicior smpt gratis
 
 def enviar_mail(**kwargs):
 
     asunto = "Gracias por el pedido"
-    mensaje = render_to_string("emails/pedidos.html",
+    mensaje = render_to_string("emails/pedido.html",
     {"pedido": kwargs.get("pedido"),
     "lineas_pedido": kwargs.get("lineas_pedido"),
-    "nombreusuario": kwargs.get("nombreusuario")
+    "nombre_usuario": kwargs.get("nombre_usuario")
     })
     mensaje_texto = strip_tags(mensaje)
-    from_email = "crearmailparaesto@"
-    to = kwargs.get("emailusuario")
+    from_email = "mispruebas.yam@gmail.com"
+    to = kwargs.get("email_usuario")
 
-    send_mail(asunto, mensaje_texto, from_email, [to], html_mesage=mensaje)
+    send_mail(asunto, mensaje_texto, from_email, [to], html_message=mensaje)
