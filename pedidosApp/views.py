@@ -31,7 +31,7 @@ def procesar_pedido(request):
 
     return redirect("../tienda")
 
-# mail enviado a travez de mailtrap.io usando su servicior smpt gratis
+# mail enviado a travez de mailtrap.io usando su servidor smpt gratis
 
 def enviar_mail(**kwargs):
 
